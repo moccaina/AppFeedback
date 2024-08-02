@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_splash">
+
+
+    <fragment
+        android:id="@+id/navigation_splash"
+        android:name="es.lamc.appnegytech.aSystem.Splash"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_navigation_splash_to_navigation_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_loading"
+        android:name="es.lamc.appnegytech.aSystem.Loading"
+        android:label="fragment_loading"
+        tools:layout="@layout/fragment_loading" />
+
+
+    <fragment
+        android:id="@+id/navigation_loading_i_f"
+        android:name="es.lamc.appnegytech.aSystem.LoadingIF"
+        android:label="fragment_loading_i_f"
+        tools:layout="@layout/fragment_loading_i_f" />
+
+
+    <fragment
+        android:id="@+id/navigation_loading_f_i_f"
+        android:name="es.lamc.appnegytech.aSystem.LoadingFIF"
+        android:label="fragment_loading_f_i_f"
+        tools:layout="@layout/fragment_loading_f_i_f" />
+
+
+    <fragment
+        android:id="@+id/navigation_loading_exit"
+        android:name="es.lamc.appnegytech.aSystem.LoadingExit"
+        android:label="fragment_loading_exit"
+        tools:layout="@layout/fragment_loading_exit" />
+
+
+    <fragment
+    android:id="@+id/navigation_login"
+    android:name="es.lamc.appnegytech.aSystem.Login"
+    android:label="fragment_login"
+    tools:layout="@layout/fragment_login" />
+
+
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="es.lamc.appnegytech.aSystem.Register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+
+
+    <fragment
+        android:id="@+id/navigation_inicio"
+        android:name="es.lamc.appnegytech.cUser.Inicio"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+
+    <fragment
+        android:id="@+id/navigation_inicio_form"
+        android:name="es.lamc.appnegytech.cUser.InicioForm"
+        android:label="fragment_inicio_form"
+        tools:layout="@layout/fragment_inicio_form" >
+        <action
+            android:id="@+id/action_inicio_form_to_seleccionar_servicio"
+            app:destination="@id/navigation_seleccionar_servicio" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_formulario"
+        android:name="es.lamc.appnegytech.cUser.Formulario"
+        android:label="fragment_formulario"
+        tools:layout="@layout/fragment_formulario" />
+
+
+    <fragment
+        android:id="@+id/navigation_inicio_admin"
+        android:name="es.lamc.appnegytech.bAdmin.InicioAdmin"
+        android:label="fragment_inicio_admin"
+        tools:layout="@layout/fragment_inicio_admin">
+        <action
+            android:id="@+id/navigation_fragment_ver_resultados"
+            app:destination="@id/navigation_ver_resultados">
+            <argument
+                android:name="userId"
+                app:argType="string" />
+            <argument
+                android:name="documentId"
+                app:argType="string" />
+            <argument
+                android:name="collectionName"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/navigation_fragment_cambiar_estado"
+            app:destination="@id/navigation_cambiar_estado" >
+            <argument
+                android:name="userId"
+                app:argType="string" />
+            <argument
+                android:name="documentId"
+                app:argType="string" />
+            <argument
+                android:name="collectionName"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_lista_usuarios"
+        android:name="es.lamc.appnegytech.bAdmin.ListaUsuarios"
+        android:label="fragment_lista_usuarios"
+        tools:layout="@layout/fragment_lista_usuarios" />
+
+
+    <fragment
+        android:id="@+id/navigation_new_form"
+        android:name="es.lamc.appnegytech.cUser.NewForm"
+        tools:layout="@layout/fragment_new_form">
+        <action
+            android:id="@+id/action_new_form_to_inicio_form"
+            app:destination="@id/navigation_inicio_form" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_seleccionar_servicio"
+        android:name="es.lamc.appnegytech.cUser.SeleccionarServicio"
+        tools:layout="@layout/fragment_seleccionar_servicio">
+        <action
+            android:id="@+id/action_seleccionar_servicio_to_new_formulario"
+            app:destination="@id/navigation_new_form" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_ver_resultados"
+        android:name="es.lamc.appnegytech.bAdmin.VerResultado"
+        android:label="fragment_ver_resultado"
+        tools:layout="@layout/fragment_ver_resultado" />
+
+
+    <fragment
+        android:id="@+id/navigation_cambiar_estado"
+        android:name="es.lamc.appnegytech.bAdmin.CambiarEstado"
+        android:label="fragment_cambiar_estado"
+        tools:layout="@layout/fragment_cambiar_estado">
+        <action
+            android:id="@+id/action_cambiar_estado_to_inicio_admin"
+            app:destination="@id/navigation_inicio_admin" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "824452271181",
+    "project_id": "appnegytech",
+    "storage_bucket": "appnegytech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824452271181:android:5bbcb601ec4b9af712a004",
+        "android_client_info": {
+          "package_name": "es.lamc.appnegytech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdyJFB3aUnD-dihOD6mpeIydJ54j8gWJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

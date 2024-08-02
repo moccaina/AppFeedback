@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".aSystem.Login">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="40dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/descripcion"
+            android:src="@drawable/img_banner"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/TextInputLayoutHint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:textColor="@color/grey"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textSize="20sp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/TextInputLayoutHint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:textColor="@color/grey"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textSize="20sp"/>
+
+            <ImageButton
+                android:id="@+id/btnTogglePassword"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="-40dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end|center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_visibility_on"
+                android:contentDescription="@string/descripcion"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_enable"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Iniciar Sesión"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>

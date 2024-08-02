@@ -1,0 +1,70 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    tools:context=".cUser.SeleccionarServicio">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="280dp"
+        android:padding="30dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Para empezar a responder el formulario primero necesitaremos algunos datos. "
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Servicio Contratado"
+            android:paddingHorizontal="5dp"
+            android:layout_marginTop="10dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/TextInputLayoutHint"
+            android:layout_marginBottom="10dp"
+            android:padding="4dp">
+
+            <Spinner
+                android:id="@+id/servicio_contratado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner"
+                android:paddingTop="10dp"
+                android:paddingBottom="6dp"
+                android:spinnerMode="dropdown"
+                android:popupBackground="@color/white"
+                android:drawableEnd="@drawable/spinner_a"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_margin="20dp"
+        android:id="@+id/btnIniciarForm"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:text="Iniciar Formulario" />
+
+</FrameLayout>
