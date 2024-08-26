@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="nameapp">Negytech´s</string>
+    <string name="nameapp">Zosaity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="descripcion">descripcion</string>
@@ -12,9 +12,38 @@
 
     <string-array name="servicios_array">
         <item>Seleccionar ...</item>
-        <item>Servicio 1</item>
-        <item>Servicio 2</item>
-        <item>Servicio 3</item>
+        <item>Creación de Contenido</item>
+        <item>Diseño Web</item>
+        <item>Branding</item>
+        <item>Brochure digital</item>
+        <item>Soluciones Integrales de Diseño Gráfico</item>
+        <item>Social Media Ads</item>
     </string-array>
+
+    <string-array name="estado_pago_options">
+        <item>Pendiente</item>
+        <item>Pagado</item>
+    </string-array>
+
+    <string name="descrip_met_pag">Aquí puedes gestionar y agregar tus métodos de pago de manera
+        segura y eficiente. A continuación, encontrarás los datos de tus cuentas. Por favor,
+        asegúrate de completar los campos con la información correcta:
+
+            Cuentas Bancarias:
+            Cuenta Corriente: 0000 0000 0000 0000
+            Cuenta de Ahorros: 0000 0000 0000 0000
+
+            Tarjetas de Crédito/Débito:
+            Número de Tarjeta: 0000 0000 0000 0000
+            Fecha de Expiración: MM/AA
+            CVV: 000
+
+            Cuentas Digitales:
+            PayPal: usuario@ejemplo.com
+            Stripe: 0000 0000 0000 0000
+
+        Por favor, completa estos datos para poder utilizar todos los beneficios de nuestra
+        aplicación. Si tienes alguna duda, no dudes en contactar a nuestro soporte técnico.
+        ¡Gracias por confiar en nosotros! </string>
 
 </resources>

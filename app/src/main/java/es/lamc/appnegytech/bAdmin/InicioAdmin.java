@@ -11,7 +11,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -51,6 +50,7 @@ public class InicioAdmin extends Fragment {
         return binding.getRoot();
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -59,7 +59,6 @@ public class InicioAdmin extends Fragment {
         mAuth = FirebaseAuth.getInstance();
 
         setupRecyclerView();
-
 
         binding.btnSalir.setOnClickListener(view1 -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
@@ -81,17 +80,16 @@ public class InicioAdmin extends Fragment {
             }
         }
 
-
         Calendar calendar = Calendar.getInstance();
         int timeOfDay = calendar.get(Calendar.HOUR_OF_DAY);
 
         String greeting;
         if (timeOfDay >= 0 && timeOfDay < 12) {
-            greeting = "Buenos días";
+            greeting = "Buenos Días";
         } else if (timeOfDay >= 12 && timeOfDay < 18) {
-            greeting = "Buenas tardes";
+            greeting = "Buenas Tardes";
         } else {
-            greeting = "Buenas noches";
+            greeting = "Buenas Noches";
         }
 
         binding.textBienvenido.setText(greeting);
@@ -112,12 +110,12 @@ public class InicioAdmin extends Fragment {
             }
 
             @Override
-            public void onCambiarEstadoClick(FormResult formResult) {
+            public void onFinanzasClick(FormResult formResult) {
                 Bundle bundle = new Bundle();
                 bundle.putString("userId", formResult.getUserId());
                 bundle.putString("documentId", formResult.getDocumentId());
                 bundle.putString("collectionName", formResult.getCollectionName());
-                navController.navigate(R.id.navigation_fragment_cambiar_estado, bundle);
+                navController.navigate(R.id.navigation_fragment_finanzas, bundle);
             }
 
         });
@@ -148,14 +146,12 @@ public class InicioAdmin extends Fragment {
                                                     if (formQuerySnapshot != null && !formQuerySnapshot.isEmpty()) {
                                                         for (DocumentSnapshot formDocument : formQuerySnapshot.getDocuments()) {
                                                             String servicioContratado = formDocument.getString("servicioContratado");
-                                                            String estado = formDocument.getString("estado");
                                                             String documentId = formDocument.getId();
 
                                                             if (nomCom != null && !nomCom.isEmpty() &&
-                                                                    servicioContratado != null && !servicioContratado.isEmpty() &&
-                                                                    estado != null && !estado.isEmpty()) {
+                                                                    servicioContratado != null && !servicioContratado.isEmpty()) {
 
-                                                                FormResult formResult = new FormResult(nomCom, servicioContratado, estado, userId, documentId, collectionName);
+                                                                FormResult formResult = new FormResult(nomCom, servicioContratado, userId, documentId, collectionName);
                                                                 userList.add(formResult);
                                                                 Log.d("InicioAdmin", "Added: " + formResult.toString());
                                                             } else {

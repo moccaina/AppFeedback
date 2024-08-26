@@ -1,19 +1,14 @@
 package es.lamc.appnegytech.dData;
 
 public class Form {
-    private String servicio;
-    private String estado;
+    private String servicioContratado;
 
-    public Form(String servicio, String estado) {
-        this.servicio = servicio;
-        this.estado = estado;
+    public Form(String servicioContratado) {
+        this.servicioContratado = servicioContratado;
     }
 
-    public String getServicio() {
-        return servicio;
+    public String getServicioContratado() {
+        return servicioContratado;
     }
 
-    public String getEstado() {
-        return estado;
-    }
 }

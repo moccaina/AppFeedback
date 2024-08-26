@@ -79,7 +79,7 @@ public class Login extends Fragment {
                         FirebaseUser user = mAuth.getCurrentUser();
 
                         if (user != null) {
-                            if (user.getEmail().equals("amontalvo259@gmail.com")) {
+                            if (user.getEmail().equals("alexander.montalvo@negytech.com")) {
                                 navController.navigate(R.id.navigation_inicio_admin);
                                 showLoading(false);
                             } else {
@@ -104,18 +104,18 @@ public class Login extends Fragment {
                         navController.navigate(R.id.navigation_inicio_form);
                         showLoading(false);
                     } else {
-                        if (mAuth.getCurrentUser().getEmail().equals("amontalvo259@gmail.com")) {
+                        if (mAuth.getCurrentUser().getEmail().equals("alexander.montalvo@negytech.com")) {
                             new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio_admin), 2000);
                         } else {
-                            new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio), 2000);
+                            new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio_form), 2000);
                         }
                     }
                 })
                 .addOnFailureListener(e -> {
-                    if (mAuth.getCurrentUser().getEmail().equals("amontalvo259@gmail.com")) {
+                    if (mAuth.getCurrentUser().getEmail().equals("alexander.montalvo@negytech.com")) {
                         new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio_admin), 2000);
                     } else {
-                        new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio), 2000);
+                        new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio_form), 2000);
                     }
                 });
     }

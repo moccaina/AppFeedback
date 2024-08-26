@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <!-- Este LinearLayout está pegado a la derecha y centrado verticalmente -->
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="end|center_vertical"> <!-- Pegado a la derecha y centrado verticalmente -->
+
+            <TextView
+                android:id="@+id/servicio_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Servicio1"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_estado_pago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pagado"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#4CAF50" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vencimiento:"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/text_fecha_vencimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01/01/0101"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="start|center_vertical">
+
+            <TextView
+                android:id="@+id/text_monto_pagado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monto Pagado"
+                android:textSize="20sp"
+                android:gravity="end"/>
+
+            <TextView
+                android:id="@+id/text_monto_pago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="S/. 000.00"
+                android:gravity="end"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"/>
+
+    </LinearLayout>
+
+</LinearLayout>

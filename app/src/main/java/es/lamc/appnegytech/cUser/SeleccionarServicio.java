@@ -20,11 +20,6 @@ import androidx.navigation.Navigation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.SetOptions;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import es.lamc.appnegytech.R;
 import es.lamc.appnegytech.dData.ViewModelFormData1;
@@ -92,56 +87,34 @@ public class SeleccionarServicio extends Fragment {
 
         btnIniciarForm.setOnClickListener(view1 -> {
             if (btnIniciarForm.isEnabled()) {
-                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                String servicioSeleccionado = servicioContratado.getSelectedItem().toString();
+                viewModel.setServicioContratado(servicioSeleccionado);
 
-                // Referencia a la colección de configuración
-                db.collection("lista_de_usuarios").document(uid)
-                        .collection("configuracion").document("numeroFormulario")
-                        .get()
-                        .addOnSuccessListener(documentSnapshot -> {
-                            int maxNum = 1;
-                            if (documentSnapshot.exists()) {
-                                maxNum = documentSnapshot.getLong("maxNum").intValue();
-                            }
-
-                            String newCollectionName = "formulario" + (maxNum + 1);
-
-                            // Crear el mapa de datos del formulario
-                            Map<String, Object> datosFormulario = new HashMap<>();
-                            datosFormulario.put("servicioContratado", servicioContratado.getSelectedItem().toString());
-                            datosFormulario.put("estado", "No Iniciado"); // Establecer el estado inicial
-
-                            // Guardar el formulario en la nueva colección
-                            int finalMaxNum = maxNum;
-                            db.collection("lista_de_usuarios").document(uid)
-                                    .collection(newCollectionName).document("datos")
-                                    .set(datosFormulario, SetOptions.merge())
-                                    .addOnSuccessListener(aVoid -> {
-                                        // Actualizar el número máximo del formulario
-                                        Map<String, Object> updateData = new HashMap<>();
-                                        updateData.put("maxNum", finalMaxNum + 1);
-                                        db.collection("lista_de_usuarios").document(uid)
-                                                .collection("configuracion").document("numeroFormulario")
-                                                .set(updateData, SetOptions.merge())
-                                                .addOnSuccessListener(aVoid1 -> {
-                                                    viewModel.setNombreColeccionFormulario(newCollectionName); // Establecer el nombre de la colección en ViewModel
-                                                    navController.navigate(R.id.navigation_new_form);
-                                                })
-                                                .addOnFailureListener(e -> {
-                                                    Toast.makeText(context, "Error al actualizar número de formulario: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                                });
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Toast.makeText(context, "Error al guardar datos: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    });
-                        })
-                        .addOnFailureListener(e -> {
-                            Toast.makeText(context, "Error al obtener el número máximo del formulario: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        });
+                switch (servicioSeleccionado) {
+                    case "Creación de Contenido":
+                        navController.navigate(R.id.navigation_form_cre_con);
+                        break;
+                    case "Diseño Web":
+                        navController.navigate(R.id.navigation_form_dis_web);
+                        break;
+                    case "Branding":
+                        navController.navigate(R.id.navigation_form_bra);
+                        break;
+                    case "Brochure digital":
+                        navController.navigate(R.id.navigation_form_bro_dig);
+                        break;
+                    case "Soluciones Integrales de Diseño Gráfico":
+                        navController.navigate(R.id.navigation_form_sol_int_dis_gra);
+                        break;
+                    case "Social Media Ads":
+                        navController.navigate(R.id.navigation_form_soc_med_ads);
+                        break;
+                    default:
+                        Toast.makeText(context, "Opción no válida seleccionada", Toast.LENGTH_SHORT).show();
+                        break;
+                }
             }
         });
-
 
         validarCampos();
     }

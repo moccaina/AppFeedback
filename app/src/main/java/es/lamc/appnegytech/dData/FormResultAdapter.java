@@ -4,14 +4,15 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import es.lamc.appnegytech.R;
 
 public class FormResultAdapter extends RecyclerView.Adapter<FormResultAdapter.ViewHolder> {
@@ -22,7 +23,7 @@ public class FormResultAdapter extends RecyclerView.Adapter<FormResultAdapter.Vi
 
     public interface OnButtonClickListener {
         void onVerResultadosClick(FormResult formResult);
-        void onCambiarEstadoClick(FormResult formResult);
+        void onFinanzasClick(FormResult formResult);
     }
 
     public FormResultAdapter(Context context, List<FormResult> formResults, OnButtonClickListener listener) {
@@ -42,11 +43,9 @@ public class FormResultAdapter extends RecyclerView.Adapter<FormResultAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FormResult formResult = formResultList.get(position);
 
-        // Verifica si los datos están presentes
         if (formResult != null) {
             holder.nombreEmpresa.setText(formResult.getNomCom() != null ? formResult.getNomCom() : "N/A");
             holder.servicioContratado.setText(formResult.getServicioContratado() != null ? formResult.getServicioContratado() : "N/A");
-            holder.estado.setText(formResult.getEstado() != null ? formResult.getEstado() : "N/A");
 
             holder.btnVerResultado.setOnClickListener(v -> {
                 if (onButtonClickListener != null) {
@@ -54,17 +53,15 @@ public class FormResultAdapter extends RecyclerView.Adapter<FormResultAdapter.Vi
                 }
             });
 
-            // Configura el botón "Cambiar Estado"
-            holder.btnCambiarEstado.setOnClickListener(v -> {
+            holder.btnFinanzas.setOnClickListener(v -> {
                 if (onButtonClickListener != null) {
-                    onButtonClickListener.onCambiarEstadoClick(formResult);
+                    onButtonClickListener.onFinanzasClick(formResult);
                 }
             });
+
         } else {
-            // Manejo de caso en el que formResult sea nulo
             holder.nombreEmpresa.setText("N/A");
             holder.servicioContratado.setText("N/A");
-            holder.estado.setText("N/A");
         }
     }
 
@@ -74,19 +71,17 @@ public class FormResultAdapter extends RecyclerView.Adapter<FormResultAdapter.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView nombreEmpresa, servicioContratado, estado;
-        Button btnVerResultado;
-        Button btnCambiarEstado;
+        TextView nombreEmpresa, servicioContratado;
+        LinearLayout btnVerResultado, btnFinanzas;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nombreEmpresa = itemView.findViewById(R.id.nombre_empresa);
             servicioContratado = itemView.findViewById(R.id.servicio_contratado);
-            estado = itemView.findViewById(R.id.estado);
             btnVerResultado = itemView.findViewById(R.id.btn_ver_resultado);
-            btnCambiarEstado = itemView.findViewById(R.id.btn_cambiar_estado);
+            btnFinanzas = itemView.findViewById(R.id.btn_finanzas);
         }
-
     }
 }
+
 

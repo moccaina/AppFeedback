@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#2E3CC9"
+                android:textColor="@color/principal"
                 android:textStyle="bold"
                 android:text="Nombre Comercial: "
                 android:textSize="17sp"/>
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:textColor="#2E3CC9"
+                android:textColor="@color/principal"
                 android:textStyle="bold"
                 android:text="Razón Social: "
                 android:textSize="17sp"/>
@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:textColor="#2E3CC9"
+                android:textColor="@color/principal"
                 android:textStyle="bold"
                 android:text="Email: "
                 android:textSize="17sp" />

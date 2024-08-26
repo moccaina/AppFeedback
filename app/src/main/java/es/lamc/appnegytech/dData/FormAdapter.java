@@ -35,31 +35,9 @@ public class FormAdapter extends RecyclerView.Adapter<FormAdapter.FormViewHolder
         DocumentSnapshot document = formList.get(position);
 
         String servicio = document.getString("servicioContratado");
-        String estado = document.getString("estado");
 
-        holder.servicioTextView.setText(servicio != null ? servicio : "N/A");
-        holder.estadoTextView.setText(estado != null ? estado : "N/A");
+        holder.servicioContratadoTextView.setText(servicio != null ? servicio : "N/A");
 
-        int color;
-        if (estado != null) {
-            switch (estado) {
-                case "No Iniciado":
-                    color = holder.itemView.getResources().getColor(android.R.color.holo_red_dark);
-                    break;
-                case "En Proceso":
-                    color = holder.itemView.getResources().getColor(android.R.color.holo_orange_dark);
-                    break;
-                case "Finalizado":
-                    color = holder.itemView.getResources().getColor(android.R.color.holo_green_dark);
-                    break;
-                default:
-                    color = holder.itemView.getResources().getColor(android.R.color.darker_gray);
-                    break;
-            }
-        } else {
-            color = holder.itemView.getResources().getColor(android.R.color.darker_gray);
-        }
-        holder.estadoContainer.setBackgroundColor(color);
     }
 
     @Override
@@ -71,10 +49,8 @@ public class FormAdapter extends RecyclerView.Adapter<FormAdapter.FormViewHolder
         List<DocumentSnapshot> filteredData = new ArrayList<>();
         for (DocumentSnapshot document : newData) {
             String servicio = document.getString("servicioContratado");
-            String estado = document.getString("estado");
 
-            if (servicio != null && !servicio.isEmpty() &&
-                    estado != null && !estado.isEmpty()) {
+            if (servicio != null && !servicio.isEmpty()) {
                 filteredData.add(document);
             }
         }
@@ -85,15 +61,11 @@ public class FormAdapter extends RecyclerView.Adapter<FormAdapter.FormViewHolder
 
 
     static class FormViewHolder extends RecyclerView.ViewHolder {
-        TextView servicioTextView;
-        TextView estadoTextView;
-        View estadoContainer;
+        TextView servicioContratadoTextView;
 
         FormViewHolder(@NonNull View itemView) {
             super(itemView);
-            servicioTextView = itemView.findViewById(R.id.servicio_textview);
-            estadoTextView = itemView.findViewById(R.id.estado_textview);
-            estadoContainer = itemView.findViewById(R.id.estado_container);
+            servicioContratadoTextView = itemView.findViewById(R.id.servicio_textview);
         }
     }
 }

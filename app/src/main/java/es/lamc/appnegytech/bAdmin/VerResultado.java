@@ -2,6 +2,10 @@ package es.lamc.appnegytech.bAdmin;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,17 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import es.lamc.appnegytech.R;
-import es.lamc.appnegytech.databinding.FragmentLoadingBinding;
 import es.lamc.appnegytech.databinding.FragmentVerResultadoBinding;
 
 
@@ -29,7 +25,6 @@ public class VerResultado extends Fragment {
     View view;
     Context context;
     NavController navController;
-    private String documentId;
     private String userId;
     private String collectionName;
     FirebaseFirestore db;
@@ -54,7 +49,6 @@ public class VerResultado extends Fragment {
         db = FirebaseFirestore.getInstance();
 
         if (getArguments() != null) {
-            documentId = getArguments().getString("documentId");
             userId = getArguments().getString("userId");
             collectionName = getArguments().getString("collectionName");
         }
@@ -83,8 +77,33 @@ public class VerResultado extends Fragment {
                         if (document.exists()) {
                             String respuesta1 = document.getString("pregunta1");
                             String respuesta2 = document.getString("pregunta2");
+                            String respuesta3 = document.getString("pregunta3");
+                            String respuesta4 = document.getString("pregunta4");
+                            String respuesta5 = document.getString("pregunta5");
                             binding.textViewRespuesta1.setText(respuesta1);
                             binding.textViewRespuesta2.setText(respuesta2);
+                            binding.textViewRespuesta3.setText(respuesta3);
+                            binding.textViewRespuesta4.setText(respuesta4);
+                            binding.textViewRespuesta5.setText(respuesta5);
+                        } else {
+                            Toast.makeText(context, "No se encontraron respuestas.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(context, "Error al obtener respuestas: " + task.getException(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        db.collection("lista_de_usuarios")
+                .document(userId)
+                .collection(collectionName)
+                .document("datos")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            String servicioContratado = document.getString("servicioContratado");
+                            binding.textServicio.setText(servicioContratado);
                         } else {
                             Toast.makeText(context, "No se encontraron respuestas.", Toast.LENGTH_SHORT).show();
                         }

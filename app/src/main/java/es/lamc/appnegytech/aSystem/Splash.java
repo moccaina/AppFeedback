@@ -78,10 +78,10 @@ public class Splash extends Fragment {
 
     private void verificarEmailYNavegar() {
         String email = mAuth.getCurrentUser().getEmail();
-        if (email != null && email.equals("amontalvo259@gmail.com")) {
+        if (email != null && email.equals("alexander.montalvo@negytech.com")) {
             new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio_admin), 2000);
         } else {
-            new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio), 2000);
+            new Handler().postDelayed(() -> navController.navigate(R.id.navigation_inicio_form), 2000);
         }
     }
 }

@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AppNegytech"
+rootProject.name = "FeedBack"
 include(":app")
  

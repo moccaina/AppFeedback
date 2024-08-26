@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".bAdmin.VerResultado">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,42 +39,133 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_servicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_text" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:text="1.¿Cómo calificaría su satisfacción general con nuestros servicios?"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/textViewRespuesta1"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:text="Aqui iria la respuesta1"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:text="2.¿Recomendaría nuestros servicios a otros?¿Por qué?"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textViewRespuesta2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:text="Aqui iria la respuesta2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:text="1.Respuesta a la pregunta de Calidad"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/textViewRespuesta1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:background="@drawable/border_radius_textview"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:text="2.Respuesta a la pregunta de Tiempo"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/textViewRespuesta2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:background="@drawable/border_radius_textview"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:text="3.Respuesta a la pregunta de Comunicación y Tiempo"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/textViewRespuesta3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:background="@drawable/border_radius_textview"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:text="4.Respuesta a la pregunta de Recomendación"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/textViewRespuesta4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:background="@drawable/border_radius_textview"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:text="5.Respuesta a la pregunta de Mejora"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/textViewRespuesta5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:background="@drawable/border_radius_textview"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

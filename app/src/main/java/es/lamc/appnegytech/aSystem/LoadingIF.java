@@ -42,6 +42,5 @@ public class LoadingIF extends Fragment {
         context = getContext();
         navController = Navigation.findNavController(view);
 
-        new Handler().postDelayed(() -> Navigation.findNavController( view ).navigate( R.id.navigation_formulario),2000);
     }
 }
